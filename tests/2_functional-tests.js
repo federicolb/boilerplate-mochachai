@@ -62,36 +62,40 @@ suite("Functional Tests", function () {
   });
 });
 
-// const Browser = require("zombie");
-// Browser.localhost = ("example.com", 3000);
+const Browser = require("zombie");
+Browser.site = "https://fmlb-fcc-app.herokuapp.com";
 
 suite("Functional Tests with Zombie.js", function () {
-  // Browser.site = "https://fmlb-fcc-app.herokuapp.com";
 
-  // const browser = new Browser();
+  const browser = new Browser();
 
-  // before(() => {
-  //   return browser.visit("/");
-  // });
+  suiteSetup(function (done) {
+    return browser.visit('/', done);
+  });
 
   suite('"Famous Italian Explorers" form', function () {
     // #5
-
-    // before(() => {
-    //   browser.fill("surname", "Colombo")
-    //   return browser.pressButton("submit")
-    // });
-
     test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
-      assert.isTrue(true);
-      done();
+      browser.fill('surname', 'Colombo').pressButton('submit', function () {
+        browser.assert.success();
+        browser.assert.text('span#name', 'Cristoforo');
+        browser.assert.text('span#surname', 'Colombo');
+        browser.assert.element('span#dates', 1);
+        done();
+      });
     });
 
     // #6
     test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
-      assert.isTrue(true);
-
-      done();
+      browser.fill('surname', 'Vespucci').pressButton('submit', function () {
+        browser.assert.success();
+        browser.assert.text('span#name', 'Amerigo');
+        browser.assert.text('span#surname', 'Vespucci');
+        browser.assert.element('span#dates', 1);
+        done();
+      });
     });
+
   });
+
 });
