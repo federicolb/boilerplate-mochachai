@@ -4,6 +4,7 @@ const assert = chai.assert;
 const server = require("../server");
 
 const chaiHttp = require("chai-http");
+const { beforeEach, before } = require("mocha");
 chai.use(chaiHttp);
 
 suite("Functional Tests", function () {
@@ -61,24 +62,38 @@ suite("Functional Tests", function () {
   });
 });
 
-const Browser = require("zombie");
+// const Browser = require("zombie");
+// Browser.localhost = ("example.com", 3000);
 
-suite("Functional Tests with Zombie.js", function () {
+// suite("Functional Tests with Zombie.js", function () {
+//   // Browser.site = "https://fmlb-fcc-app.herokuapp.com";
 
-  suite('"Famous Italian Explorers" form', function () {
-    // #5
-    test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
-      browser.fill("surname", "Colombo").pressButton("submit", function () {
-        assert.fail();
+//   const browser = new Browser();
 
-        done();
-      });
-    });
-    // #6
-    test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
-      assert.fail();
+//   before(() => {
+//     return browser.visit("/");
+//   });
 
-      done();
-    });
-  });
-});
+//   suite('"Famous Italian Explorers" form', function () {
+//     // #5
+
+//     before(() => {
+//       browser.fill("surname", "Colombo")
+//       return browser.pressButton("submit")
+//     });
+
+//     test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
+//       browser.assert.success();
+//       done();
+//     });
+
+//     // #6
+//     test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
+//       browser.visit("/");
+
+//       assert.fail();
+
+//       done();
+//     });
+//   });
+// });
