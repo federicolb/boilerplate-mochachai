@@ -65,35 +65,35 @@ suite("Functional Tests", function () {
 // const Browser = require("zombie");
 // Browser.localhost = ("example.com", 3000);
 
-// suite("Functional Tests with Zombie.js", function () {
-//   // Browser.site = "https://fmlb-fcc-app.herokuapp.com";
+suite("Functional Tests with Zombie.js", function () {
+  // Browser.site = "https://fmlb-fcc-app.herokuapp.com";
 
-//   const browser = new Browser();
+  // const browser = new Browser();
 
-//   before(() => {
-//     return browser.visit("/");
-//   });
+  // before(() => {
+  //   return browser.visit("/");
+  // });
 
-//   suite('"Famous Italian Explorers" form', function () {
-//     // #5
+  suite('"Famous Italian Explorers" form', function () {
+    // #5
 
-//     before(() => {
-//       browser.fill("surname", "Colombo")
-//       return browser.pressButton("submit")
-//     });
+    // before(() => {
+    //   browser.fill("surname", "Colombo")
+    //   return browser.pressButton("submit")
+    // });
 
-//     test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
-//       browser.assert.success();
-//       done();
-//     });
+    test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
+      browser.assert.success();
+      done();
+    });
 
-//     // #6
-//     test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
-//       browser.visit("/");
+    // #6
+    test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
+      browser.visit("/");
 
-//       assert.fail();
+      assert.fail();
 
-//       done();
-//     });
-//   });
-// });
+      done();
+    });
+  });
+});
